@@ -1,16 +1,21 @@
 import Layout from '../../components/layout'
 import { getAllPostIds, getPostData } from '../../lib/posts'
+import Date from '../../components/date'
 
-//동적 라우팅 하려면 [] 들어간 파일 명에다가 getStaticPaths(), getStaticProps() 함수를 구현해야함.
+// md파일 읽어서 보여주는 뼈대 같은 느낌
+// ...3000/posts/md파일제목 으로 동적 링크를 만들어 줌
+// 동적 라우팅 하려면 [] 들어간 파일 명에다가 getStaticPaths(), getStaticProps() 함수를 구현해야함.
 
-export default function Post({postData}) {
+export default function Post({ postData }) {
   return (
     <Layout>
       {postData.title}
       <br/>
       {postData.id}
       <br/>
-      {postData.date}
+      <Date dateString={postData.date} />
+      <br/>
+      <div dangerouslySetInnerHTML={{__html: postData.contentHtml}} />
     </Layout>
   )
 }
@@ -24,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const postData = getPostData(params.id)
+  const postData = await getPostData(params.id)
   return {
     props: {
       postData
