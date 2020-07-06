@@ -24,7 +24,7 @@ export async function getStaticPaths() {
   const paths = getAllPostIds()
   return {
     paths,
-    fallback: false // 이 친구는 아직은 생각 안해도 됨.
+    fallback: false // 이 친구는 true로 넣으면 없는 경로에 대해 404페이지가 안뜨고 에러 창이 뜸
   }
 }
 
