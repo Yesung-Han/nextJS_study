@@ -5,11 +5,15 @@ import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
 
+import useInput from '../hooks/useInput';
+
 const LoginForm = ({ setIsLoggedIn }) => {
-  const [id, setId] = useState('');
-  const onChangeId = useCallback((e) => {
-    setId(e.target.value);
-  }, []);
+  // const [id, setId] = useState('');
+  // const onChangeId = useCallback((e) => {
+  //   setId(e.target.value);
+  // }, []);
+
+  const [id, onChangeId] = useInput('');
 
   const [password, setPassword] = useState('');
   const onChangePassword = useCallback((e) => {
