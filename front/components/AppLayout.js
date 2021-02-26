@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import Link from 'next/link';
@@ -16,6 +16,10 @@ const SearchInput = styled(Input.Search)`
 const AppLayout = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const cachedStyle = useMemo(() => ({
+    verticalAlign: 'middle'
+  }), []);
+
   return (
     <div>
       <Menu mode="horizontal">
@@ -26,7 +30,7 @@ const AppLayout = ({ children }) => {
           <Link href="/profile"><a>프로필</a></Link>
         </Menu.Item>
         <Menu.Item>
-          <SearchInput enterButton style={{verticalAlign: 'middle'}}/>
+          <SearchInput enterButton style={cachedStyle}/>
         </Menu.Item>
         <Menu.Item>
           <Link href="/signup"><a>로그인</a></Link>
