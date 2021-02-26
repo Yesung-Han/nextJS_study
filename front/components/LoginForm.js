@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import styled from 'styled-components';
 
-const LoginForm = () => {
+const LoginForm = ({ setIsLoggedIn }) => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,9 +20,14 @@ const LoginForm = () => {
     margin-top: 10px;
   `;
 
+  const onSubmitForm = useCallback(() => {
+    console.log(id, password);
+    setIsLoggedIn(true);
+  }, []);
+
   return (
     <>
-      <Form>
+      <Form onFinish={onSubmitForm}>   
         <div>
           <label htmlFor="user-id">아이디</label>
           <br />
