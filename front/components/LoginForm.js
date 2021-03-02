@@ -66,4 +66,8 @@ LoginForm.propTypes = {
   setIsLoggedIn: PropTypes.func.isRequired,
 }
 
+// @ getStaticProps: static data를 위해 data fetching
+// @ getServerSideProps: ssr을 위해 data fetching
+// @ getStaticProps와 getServerSideProps의 차이는 빌드이후에도 data 변경가능 여부입니다. 
+
 export default LoginForm;
