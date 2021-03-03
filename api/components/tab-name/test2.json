@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_tab_name_test2s",
+  "info": {
+    "name": "test2",
+    "icon": "allergies"
+  },
+  "options": {},
+  "attributes": {
+    "order": {
+      "type": "integer"
+    }
+  }
+}
